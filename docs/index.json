@@ -1,0 +1,104 @@
+{
+  "format": 1,
+  "title": {
+    "zh": "公司插件市场",
+    "en": "Acme DSH plugins"
+  },
+  "description": {
+    "zh": "同事做的工作台插件，装了就能用",
+    "en": "Workbench plugins built by colleagues"
+  },
+  "metadata": {
+    "categories": {
+      "team": {
+        "title": {
+          "zh": "团队协作",
+          "en": "Team"
+        }
+      },
+      "tools": {
+        "title": {
+          "zh": "内部系统",
+          "en": "Internal tools"
+        }
+      },
+      "data": {
+        "title": {
+          "zh": "数据与报表",
+          "en": "Data and reports"
+        }
+      },
+      "productivity": {
+        "title": {
+          "zh": "效率工具",
+          "en": "Productivity"
+        }
+      },
+      "other": {
+        "title": {
+          "zh": "其他",
+          "en": "Other"
+        }
+      }
+    },
+    "labels": {
+      "unreviewed": {
+        "title": {
+          "zh": "未审核",
+          "en": "Unreviewed"
+        }
+      },
+      "official": {
+        "title": {
+          "zh": "官方",
+          "en": "Official"
+        }
+      }
+    },
+    "sortKeys": {}
+  },
+  "plugins": [
+    {
+      "name": "@acme-community/demo-board",
+      "title": {
+        "zh": "值班看板",
+        "en": "On-call board"
+      },
+      "description": {
+        "zh": "聚合本周值班、告警和待办",
+        "en": "This week's rota, alerts and open tasks"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJXb3JrYmVuY2ggcGx1Z2luIj4KICA8cmVjdCB4PSI0IiB5PSI0IiB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHJ4PSIxNCIgZmlsbD0iIzFmMjkzNyIvPgogIDxyZWN0IHg9IjE0IiB5PSIxNiIgd2lkdGg9IjM2IiBoZWlnaHQ9IjciIHJ4PSIzLjUiIGZpbGw9IiNlNWU3ZWIiLz4KICA8cmVjdCB4PSIxNCIgeT0iMjkiIHdpZHRoPSIyMiIgaGVpZ2h0PSI3IiByeD0iMy41IiBmaWxsPSIjOWNhM2FmIi8+CiAgPHJlY3QgeD0iMTQiIHk9IjQyIiB3aWR0aD0iMzAiIGhlaWdodD0iNyIgcng9IjMuNSIgZmlsbD0iIzZiNzI4MCIvPgo8L3N2Zz4K",
+      "author": "平台组",
+      "repository": {
+        "url": "https://github.com/sy118/dsh-market",
+        "directory": "plugins/demo-board"
+      },
+      "metadata": {
+        "category": "team",
+        "keywords": [
+          "team"
+        ],
+        "labels": [
+          "unreviewed"
+        ],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1793779236,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/sy118/dsh-market",
+            "commit": "5fbd7d7fd54366069e7befc4e442b93886aa0060",
+            "path": "plugins/demo-board"
+          },
+          "engines": {
+            "dsh": ">=0.2.0 <0.3.0"
+          }
+        }
+      ]
+    }
+  ]
+}
