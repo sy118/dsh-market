@@ -11,7 +11,11 @@
  *   node scripts/publish-plugin.mjs [--dir <path>] [--name @scope/slug] [--version 1.0.0]
  *        [--title "中文名"] [--title-en "English name"] [--description "一句话"]
  *        [--category team|tools|data|productivity|other] [--author "平台组"]
- *        [--dsh ">=0.2.0 <0.3.0"] [--no-push] [--dry-run]
+ *        [--dsh ">=0.2.0 <0.3.0"]
+ *        [--npm --registry https://npm.acme.internal/]   publish the package to that
+ *                                                        registry and point the index
+ *                                                        at it instead of a Git commit
+ *        [--no-push] [--dry-run]
  *
  * With no --dir the newest plugin the Creator generated is used.
  */
@@ -48,6 +52,13 @@ function parseArgs(argv) {
 const options = parseArgs(process.argv.slice(2))
 const dryRun = options['dry-run'] === true
 const push = options['no-push'] !== true && !dryRun
+const npmMode = options.npm === true || typeof options.registry === 'string'
+const registry = typeof options.registry === 'string'
+  ? options.registry.replace(/\/+$/, '') + '/'
+  : (process.env.MARKET_REGISTRY === undefined ? undefined : process.env.MARKET_REGISTRY.replace(/\/+$/, '') + '/')
+if (npmMode && registry === undefined) {
+  throw new Error('--npm needs --registry https://npm.acme.internal/ (or MARKET_REGISTRY)')
+}
 
 /** Repo web URL derived from the origin remote, or an env override. */
 function repositoryUrl() {
@@ -157,24 +168,51 @@ const { file: catalogFile, catalog } = await recordInCatalog({ slug, title, titl
 await writeFile(catalogFile, `${JSON.stringify(catalog, null, 2)}\n`)
 console.log(`catalog: catalog.json now lists ${String(catalog.plugins.length)} plugin(s)`)
 
-execFileSync(process.execPath, ['scripts/build-static-index.mjs', '--out', 'docs', '--repo', repositoryUrl(), '--url', indexUrl()], {
-  cwd: root,
-  stdio: 'inherit',
-})
-
-if (!push) {
-  console.log('done (not pushed): review `git status`, then commit and push yourself')
-  process.exit(0)
-}
-
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] })
-git('add', '--', `plugins/${slug}`, 'catalog.json', 'docs')
+
+// Commit the package first: a Git-sourced index pins every version to a commit,
+// and that commit has to be one in which the plugin directory already exists.
+git('add', '--', `plugins/${slug}`, 'catalog.json')
 git(
   '-c', 'user.name=dsh-market', '-c', 'user.email=dsh-market@local',
   'commit', '-q', '-m', `plugin: ${normalized.name}@${normalized.version}`,
   '-m', `${title} — ${description ?? title}`,
 )
-console.log(`committed: ${git('log', '-1', '--format=%h %s').trim()}`)
+const pinned = git('rev-parse', 'HEAD').trim()
+console.log(`committed plugin files: ${git('log', '-1', '--format=%h %s').trim()}`)
+
+if (npmMode) {
+  console.log(`npm publish → ${registry}`)
+  try {
+    execFileSync(process.platform === 'win32' ? 'npm.cmd' : 'npm', ['publish', '--registry', registry], {
+      cwd: target,
+      stdio: 'inherit',
+    })
+  } catch {
+    throw new Error(`npm publish failed — log in once with: npm login --registry ${registry}`)
+  }
+}
+
+const buildArgs = ['scripts/build-static-index.mjs', '--out', 'docs', '--repo', repositoryUrl(), '--url', indexUrl()]
+if (npmMode) buildArgs.push('--source', 'npm', '--registry', registry)
+execFileSync(process.execPath, buildArgs, {
+  cwd: root,
+  stdio: 'inherit',
+  env: { ...process.env, GITHUB_SHA: pinned },
+})
+
+git('add', '--', 'docs')
+git(
+  '-c', 'user.name=dsh-market', '-c', 'user.email=dsh-market@local',
+  'commit', '-q', '-m', `index: rebuild for ${normalized.name}@${normalized.version}`,
+  '-m', `Pins every version to ${pinned.slice(0, 12)}.`,
+)
+console.log(`committed index: ${git('log', '-1', '--format=%h %s').trim()}`)
+
+if (!push) {
+  console.log('done (not pushed): review `git status`, then push yourself')
+  process.exit(0)
+}
 
 let lastError
 for (let attempt = 1; attempt <= 6; attempt += 1) {

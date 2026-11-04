@@ -9,6 +9,12 @@
  *
  * Usage:
  *   node scripts/build-static-index.mjs [--out public] [--url https://…/index.json]
+ *                                       [--source git|npm] [--registry https://npm.…/]
+ *
+ * `--source git` (default) pins every version to a commit of this repository and
+ * installs with `git+https://…`. `--source npm` instead points every version at
+ * the registry it was published to, so installation is a plain npm install and
+ * the repository only has to serve the index.
  *
  * Environment:
  *   MARKET_URL            index URL people add (default: the GitHub Pages URL)
@@ -154,6 +160,13 @@ async function main() {
   const outDir = resolve(root, typeof options.out === 'string' ? options.out : 'public')
   const repoUrl = repositoryUrl(options)
   const url = indexUrl(options)
+  const sourceKind = typeof options.source === 'string' ? options.source : (process.env.MARKET_SOURCE ?? 'git')
+  if (sourceKind !== 'git' && sourceKind !== 'npm') throw new Error(`--source must be git or npm, got ${JSON.stringify(sourceKind)}`)
+  const registryOption = typeof options.registry === 'string' ? options.registry : process.env.MARKET_REGISTRY
+  if (sourceKind === 'npm' && (registryOption === undefined || registryOption === '')) {
+    throw new Error('--source npm needs --registry https://npm.example/ (or MARKET_REGISTRY)')
+  }
+  const registry = registryOption === undefined ? undefined : registryOption.replace(/\/+$/, '') + '/'
   const commit = process.env.GITHUB_SHA !== undefined && process.env.GITHUB_SHA !== ''
     ? process.env.GITHUB_SHA
     : (gitOptional(['rev-parse', 'HEAD']) ?? readGitHead())
@@ -212,7 +225,9 @@ async function main() {
       versions: [{
         version: manifest.version,
         publishTimestamp: committedAt,
-        source: { type: 'git', url: repoUrl, commit, path: directoryInsideRepo },
+        source: sourceKind === 'npm'
+          ? { type: 'npm', registry }
+          : { type: 'git', url: repoUrl, commit, path: directoryInsideRepo },
         engines: { dsh: range.trim() },
       }],
     })
