@@ -1,0 +1,12 @@
+{
+  "title": { "zh": "公司插件市场", "en": "Acme DSH plugins" },
+  "description": { "zh": "同事做的工作台插件，装了就能用", "en": "Workbench plugins built by colleagues" },
+  "plugins": [
+    {
+      "path": "plugins/demo-board",
+      "category": "team",
+      "title": { "zh": "值班看板", "en": "On-call board" },
+      "description": { "zh": "聚合本周值班、告警和待办", "en": "This week's rota, alerts and open tasks" }
+    }
+  ]
+}

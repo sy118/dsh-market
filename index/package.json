@@ -1,0 +1,17 @@
+{
+  "name": "@acme/dsh-market-index",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Reads a Verdaccio storage directory and serves a DSH plugin market index (format 1).",
+  "main": "src/server.mjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node src/server.mjs"
+  },
+  "dependencies": {
+    "@deepseek-ai/dsh-plugin-market-index": "0.2.2-alpha.3"
+  }
+}

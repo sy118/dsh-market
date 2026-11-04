@@ -1,0 +1,13 @@
+{
+  "name": "dsh-market-stack",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Internal DSH plugin market: a Verdaccio registry, an index service, a static GitHub Pages index, and the publish CLI.",
+  "scripts": {
+    "smoke": "node scripts/smoke.mjs",
+    "index": "node index/src/server.mjs",
+    "build:pages": "node scripts/build-static-index.mjs",
+    "demo-plugin": "node scripts/make-demo-plugin.mjs"
+  }
+}

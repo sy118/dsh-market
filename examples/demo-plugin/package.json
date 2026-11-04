@@ -1,0 +1,19 @@
+{
+  "name": "@dsh-local/view-7f3a1c2e-9b44-4c1e-8f0a-2d6c5b1e9a77",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "entry": "./client.js"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+- insert:
+    - id: '@dsh-local/view-7f3a1c2e-9b44-4c1e-8f0a-2d6c5b1e9a77:page'
+      name: '@dsh-local/view-7f3a1c2e-9b44-4c1e-8f0a-2d6c5b1e9a77'
+      config:
+        title: 值班看板

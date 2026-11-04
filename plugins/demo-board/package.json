@@ -1,0 +1,43 @@
+{
+  "name": "@acme-community/demo-board",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "entry": "./client.js"
+    }
+  },
+  "description": "聚合本周值班、告警和待办",
+  "author": {
+    "name": "平台组"
+  },
+  "license": "UNLICENSED",
+  "engines": {
+    "dsh": ">=0.2.0 <0.3.0"
+  },
+  "dshMarket": {
+    "category": "team"
+  },
+  "keywords": [
+    "team"
+  ],
+  "files": [
+    "client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "index.js",
+    "locale",
+    "package.json",
+    "README.md"
+  ]
+}

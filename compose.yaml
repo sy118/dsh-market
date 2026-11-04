@@ -1,0 +1,55 @@
+# Two containers, one volume.
+#
+#   registry  Verdaccio: stores plugin tarballs, anonymous read, token publish.
+#   index     This repository's service: builds and serves the market index.
+#
+# `docker compose up -d --build` from this directory.
+
+name: dsh-market
+
+services:
+  registry:
+    image: verdaccio/verdaccio:5
+    container_name: dsh-market-registry
+    restart: unless-stopped
+    environment:
+      VERDACCIO_PORT: "4873"
+    ports:
+      - "4873:4873"
+    volumes:
+      - registry-data:/verdaccio/storage
+      - ./registry/config.yaml:/verdaccio/conf/config.yaml:ro
+
+  index:
+    build:
+      context: .
+      dockerfile: index/Dockerfile
+    container_name: dsh-market-index
+    restart: unless-stopped
+    depends_on:
+      - registry
+    environment:
+      REGISTRY_STORAGE: /verdaccio/storage
+      SCOPE: ${MARKET_SCOPE:-@acme-community}
+      # What DSH installs from: the URL a colleague's machine can reach.
+      REGISTRY_URL: ${NPM_REGISTRY_URL:-http://127.0.0.1:4873/}
+      # What people add as an index source: likewise client-reachable.
+      PUBLIC_BASE_URL: ${MARKET_URL:-http://127.0.0.1:8080}
+      TITLE_ZH: ${MARKET_TITLE_ZH:-公司插件市场}
+      TITLE_EN: ${MARKET_TITLE_EN:-Acme DSH plugins}
+      DESC_ZH: ${MARKET_DESC_ZH:-同事做的工作台插件，装了就能用}
+      DESC_EN: ${MARKET_DESC_EN:-Workbench plugins built by colleagues}
+      # Comma-separated author names that get the `official` label.
+      OFFICIAL_AUTHORS: ${OFFICIAL_AUTHORS:-}
+      BLOCKLIST: /app/config/blocklist.json
+      POLL_MS: "60000"
+    ports:
+      - "8080:8080"
+    volumes:
+      - registry-data:/verdaccio/storage:ro
+      # The directory, not the file: editors that replace a file by rename
+      # would leave a file bind mount pointing at the old inode.
+      - ./config:/app/config:ro
+
+volumes:
+  registry-data:

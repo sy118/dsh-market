@@ -1,0 +1,5 @@
+- insert:
+    - id: '@acme-community/demo-board:page'
+      name: '@acme-community/demo-board'
+      config:
+        title: 值班看板

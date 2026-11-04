@@ -1,0 +1,61 @@
+# Verdaccio: the market's npm registry.
+#
+# - Anyone who can reach the port may READ (DSH installs anonymously).
+# - Only an authenticated account may PUBLISH, and only into the market scope.
+# - Public packages a plugin depends on are proxied and cached, so a colleague's
+#   install never falls back to a different registry for the same name.
+#
+# The storage volume holds both tarballs and the account file; see the README
+# for backup and for closing self-registration after onboarding.
+
+storage: /verdaccio/storage
+plugins: /verdaccio/plugins
+
+auth:
+  htpasswd:
+    file: /verdaccio/storage/htpasswd
+    # Self-registration. Set to -1 and create accounts with `htpasswd` once
+    # onboarding is done.
+    max_users: 200
+
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+    timeout: 30s
+    maxage: 10m
+
+packages:
+  # The market scope: anonymous read, authenticated publish.
+  '@acme-community/*':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+    proxy: npmjs
+
+  # Everything else, including the third-party dependencies of a plugin.
+  '@*/*':
+    access: $all
+    publish: $authenticated
+    proxy: npmjs
+
+  '**':
+    access: $all
+    publish: $authenticated
+    proxy: npmjs
+
+server:
+  keepAliveTimeout: 60
+
+middlewares:
+  audit:
+    enabled: false
+
+web:
+  enable: false
+
+max_body_size: 10mb
+
+log:
+  type: stdout
+  format: pretty
+  level: warn
