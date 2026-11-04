@@ -59,6 +59,50 @@
   },
   "plugins": [
     {
+      "name": "@acme-community/market-publisher",
+      "title": {
+        "zh": "发布助手",
+        "en": "Plugin publisher"
+      },
+      "description": {
+        "zh": "说一句话，把你在 DSH 里做的插件发到公司市场",
+        "en": "Publish a plugin you built in DSH to the company market in one sentence"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJQbHVnaW4gcHVibGlzaGVyIj4KICA8cmVjdCB4PSI0IiB5PSI0IiB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHJ4PSIxNCIgZmlsbD0iIzExMTgyNyIvPgogIDxwYXRoIGQ9Ik0zMiAxNnYyMiIgc3Ryb2tlPSIjZTVlN2ViIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0yMiAyOGwxMC0xMCAxMCAxMCIgc3Ryb2tlPSIjZTVlN2ViIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xOCA0NGgyOCIgc3Ryb2tlPSIjMzRkMzk5IiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K",
+      "author": "平台组",
+      "repository": {
+        "url": "https://github.com/sy118/dsh-market",
+        "directory": "plugins/market-publisher"
+      },
+      "metadata": {
+        "category": "tools",
+        "keywords": [
+          "tools",
+          "publish",
+          "market"
+        ],
+        "labels": [
+          "unreviewed"
+        ],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1793789689,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/sy118/dsh-market",
+            "commit": "5f6d28d680fd5cbc14ef8809d2645f7dd611772a",
+            "path": "plugins/market-publisher"
+          },
+          "engines": {
+            "dsh": ">=0.2.0 <0.3.0"
+          }
+        }
+      ]
+    },
+    {
       "name": "@acme-community/demo-board",
       "title": {
         "zh": "值班看板",
@@ -87,11 +131,11 @@
       "versions": [
         {
           "version": "1.0.0",
-          "publishTimestamp": 1793779236,
+          "publishTimestamp": 1793789689,
           "source": {
             "type": "git",
             "url": "https://github.com/sy118/dsh-market",
-            "commit": "5fbd7d7fd54366069e7befc4e442b93886aa0060",
+            "commit": "5f6d28d680fd5cbc14ef8809d2645f7dd611772a",
             "path": "plugins/demo-board"
           },
           "engines": {
