@@ -1,0 +1,55 @@
+name: pages
+
+# Publishes the market index to GitHub Pages:
+#   https://<owner>.github.io/<repo>/index.json
+# Enable it once in Settings → Pages → Build and deployment → Source: GitHub Actions.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install the index service
+        run: npm ci --prefix index --legacy-peer-deps --omit=dev --no-audit --no-fund
+
+      - name: Build the index
+        run: node scripts/build-static-index.mjs
+        env:
+          # Set a repository variable MARKET_URL to serve the index from a custom
+          # domain; otherwise the Pages URL is derived from GITHUB_REPOSITORY.
+          MARKET_URL: ${{ vars.MARKET_URL }}
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

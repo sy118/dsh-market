@@ -1,0 +1,36 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      # The index service's only dependency is DSH's own format validator.
+      - name: Install the index service
+        run: npm ci --prefix index --legacy-peer-deps --omit=dev --no-audit --no-fund
+
+      - name: End-to-end smoke
+        run: node scripts/smoke.mjs
+
+      - name: Static index builds and validates
+        run: node scripts/build-static-index.mjs
+        env:
+          MARKET_REPO_URL: https://github.com/${{ github.repository }}
