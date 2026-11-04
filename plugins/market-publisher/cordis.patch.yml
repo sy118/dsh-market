@@ -1,0 +1,10 @@
+- insert:
+    - id: '@acme-community/market-publisher:tools'
+      name: '@acme-community/market-publisher'
+      config:
+        # Absolute path of the dsh-market checkout on this machine.
+        repoPath: ''
+        # Shared npm registry; leave empty to publish Git-sourced entries.
+        registry: ''
+        # Name attached to published versions.
+        author: ''

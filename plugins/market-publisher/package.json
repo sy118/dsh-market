@@ -1,0 +1,41 @@
+{
+  "name": "@acme-community/market-publisher",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "description": "把你在 DSH 里做的插件发到公司插件市场",
+  "author": {
+    "name": "平台组"
+  },
+  "license": "UNLICENSED",
+  "engines": {
+    "dsh": ">=0.2.0 <0.3.0"
+  },
+  "dshMarket": {
+    "category": "tools"
+  },
+  "keywords": [
+    "tools",
+    "publish",
+    "market"
+  ],
+  "files": [
+    "index.js",
+    "lib",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale",
+    "package.json",
+    "README.md"
+  ]
+}
