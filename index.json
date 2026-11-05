@@ -1,0 +1,194 @@
+{
+  "format": 1,
+  "title": {
+    "zh": "公司插件市场",
+    "en": "Acme DSH plugins"
+  },
+  "description": {
+    "zh": "同事做的工作台插件，装了就能用",
+    "en": "Workbench plugins built by colleagues"
+  },
+  "metadata": {
+    "categories": {
+      "team": {
+        "title": {
+          "zh": "团队协作",
+          "en": "Team"
+        }
+      },
+      "tools": {
+        "title": {
+          "zh": "内部系统",
+          "en": "Internal tools"
+        }
+      },
+      "data": {
+        "title": {
+          "zh": "数据与报表",
+          "en": "Data and reports"
+        }
+      },
+      "productivity": {
+        "title": {
+          "zh": "效率工具",
+          "en": "Productivity"
+        }
+      },
+      "other": {
+        "title": {
+          "zh": "其他",
+          "en": "Other"
+        }
+      }
+    },
+    "labels": {
+      "unreviewed": {
+        "title": {
+          "zh": "未审核",
+          "en": "Unreviewed"
+        }
+      },
+      "official": {
+        "title": {
+          "zh": "官方",
+          "en": "Official"
+        }
+      }
+    },
+    "sortKeys": {}
+  },
+  "plugins": [
+    {
+      "name": "@acme-community/market-publisher",
+      "title": {
+        "zh": "发布助手",
+        "en": "Plugin publisher"
+      },
+      "description": {
+        "zh": "说一句话，把你在 DSH 里做的插件发到公司市场",
+        "en": "Publish a plugin you built in DSH to the company market in one sentence"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJQbHVnaW4gcHVibGlzaGVyIj4KICA8cmVjdCB4PSI0IiB5PSI0IiB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHJ4PSIxNCIgZmlsbD0iIzExMTgyNyIvPgogIDxwYXRoIGQ9Ik0zMiAxNnYyMiIgc3Ryb2tlPSIjZTVlN2ViIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0yMiAyOGwxMC0xMCAxMCAxMCIgc3Ryb2tlPSIjZTVlN2ViIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xOCA0NGgyOCIgc3Ryb2tlPSIjMzRkMzk5IiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K",
+      "author": "平台组",
+      "repository": {
+        "url": "https://github.com/sy118/dsh-market",
+        "directory": "plugins/market-publisher"
+      },
+      "metadata": {
+        "category": "tools",
+        "keywords": [
+          "tools",
+          "publish",
+          "market"
+        ],
+        "labels": [
+          "unreviewed"
+        ],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1793851549,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/sy118/dsh-market",
+            "commit": "43e424b9d95ac865ecbb32a1d2f92804a6552ac6",
+            "path": "plugins/market-publisher"
+          },
+          "engines": {
+            "dsh": ">=0.2.0 <0.3.0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@acme-community/demo-board",
+      "title": {
+        "zh": "值班看板",
+        "en": "On-call board"
+      },
+      "description": {
+        "zh": "聚合本周值班、告警和待办",
+        "en": "This week's rota, alerts and open tasks"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJXb3JrYmVuY2ggcGx1Z2luIj4KICA8cmVjdCB4PSI0IiB5PSI0IiB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHJ4PSIxNCIgZmlsbD0iIzFmMjkzNyIvPgogIDxyZWN0IHg9IjE0IiB5PSIxNiIgd2lkdGg9IjM2IiBoZWlnaHQ9IjciIHJ4PSIzLjUiIGZpbGw9IiNlNWU3ZWIiLz4KICA8cmVjdCB4PSIxNCIgeT0iMjkiIHdpZHRoPSIyMiIgaGVpZ2h0PSI3IiByeD0iMy41IiBmaWxsPSIjOWNhM2FmIi8+CiAgPHJlY3QgeD0iMTQiIHk9IjQyIiB3aWR0aD0iMzAiIGhlaWdodD0iNyIgcng9IjMuNSIgZmlsbD0iIzZiNzI4MCIvPgo8L3N2Zz4K",
+      "author": "平台组",
+      "repository": {
+        "url": "https://github.com/sy118/dsh-market",
+        "directory": "plugins/demo-board"
+      },
+      "metadata": {
+        "category": "team",
+        "keywords": [
+          "team"
+        ],
+        "labels": [
+          "unreviewed"
+        ],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1793851549,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/sy118/dsh-market",
+            "commit": "43e424b9d95ac865ecbb32a1d2f92804a6552ac6",
+            "path": "plugins/demo-board"
+          },
+          "engines": {
+            "dsh": ">=0.2.0 <0.3.0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@acme-community/fde-workbench",
+      "title": {
+        "zh": "交付工作台",
+        "en": "Delivery workbench"
+      },
+      "description": {
+        "zh": "项目组合、八阶段交付合同、资料、任务、文档、调研、AI 机会与会议，AI 由当前 DSH 提供",
+        "en": "Portfolio, eight-stage delivery contract, sources, tasks, documents, research, AI opportunities and meetings, analysed by the current DSH model"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJGREUgZGVsaXZlcnkgd29ya2JlbmNoIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZmRlLXdvcmtiZW5jaC1ncmFkaWVudCIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyZDViZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMGU5ZjhhIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNSIgZmlsbD0idXJsKCNmZGUtd29ya2JlbmNoLWdyYWRpZW50KSIvPgogIDxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIzLjIiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+CiAgICA8cGF0aCBkPSJNMzIgMTMuNSA1MC41IDIzLjQgMzIgMzMuMyAxMy41IDIzLjRaIi8+CiAgICA8cGF0aCBkPSJNMTMuNSAzMi4yIDMyIDQyLjEgNTAuNSAzMi4yIi8+CiAgICA8cGF0aCBkPSJNMTMuNSA0MC42IDMyIDUwLjUgNTAuNSA0MC42IiBvcGFjaXR5PSIwLjYiLz4KICA8L2c+CiAgPHBhdGggZD0iTTQ5LjUgNDEuNSA1MS4yIDQ2LjMgNTYgNDggNTEuMiA0OS43IDQ5LjUgNTQuNSA0Ny44IDQ5LjcgNDMgNDggNDcuOCA0Ni4zWiIgZmlsbD0iI2ZmZmZmZiIvPgo8L3N2Zz4K",
+      "author": "平台组",
+      "repository": {
+        "url": "https://github.com/sy118/dsh-market",
+        "directory": "plugins/fde-workbench"
+      },
+      "metadata": {
+        "category": "productivity",
+        "keywords": [
+          "productivity",
+          "fde",
+          "delivery",
+          "workbench",
+          "ai"
+        ],
+        "labels": [
+          "unreviewed"
+        ],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "0.2.0",
+          "publishTimestamp": 1793851549,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/sy118/dsh-market",
+            "commit": "43e424b9d95ac865ecbb32a1d2f92804a6552ac6",
+            "path": "plugins/fde-workbench"
+          },
+          "engines": {
+            "dsh": ">=0.2.0 <0.3.0"
+          }
+        }
+      ]
+    }
+  ]
+}
