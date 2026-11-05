@@ -1,0 +1,5 @@
+schema: spec-driven
+created: 2026-11-05
+goal: Turn the current workbench into a delivery backbone where every stage has
+  required artifacts, evidence, blockers, and an explicit human decision,
+  without auto-advancing.

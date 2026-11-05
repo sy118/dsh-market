@@ -16,6 +16,15 @@
       "category": "team",
       "title": { "zh": "值班看板", "en": "On-call board" },
       "description": { "zh": "聚合本周值班、告警和待办", "en": "This week's rota, alerts and open tasks" }
+    },
+    {
+      "path": "plugins/fde-workbench",
+      "category": "productivity",
+      "title": { "zh": "交付工作台", "en": "Delivery workbench" },
+      "description": {
+        "zh": "项目组合、八阶段交付合同、资料、任务、文档、调研、AI 机会与会议，AI 由当前 DSH 提供",
+        "en": "Portfolio, eight-stage delivery contract, sources, tasks, documents, research, AI opportunities and meetings, analysed by the current DSH model"
+      }
     }
   ]
 }

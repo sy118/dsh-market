@@ -1,0 +1,3 @@
+- insert:
+    - id: fde-workbench
+      name: '@acme-community/fde-workbench'

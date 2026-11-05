@@ -1,0 +1,64 @@
+{
+  "name": "@acme-community/fde-workbench",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "交付工作台：项目组合、八阶段交付合同与固定产物、资料、任务、文档版本、调研、AI 机会与会议，AI 由当前 DSH 提供",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "src/host",
+    "src/shared",
+    "client.js",
+    "cordis.patch.yml",
+    "locale",
+    "icon.svg",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  },
+  "author": {
+    "name": "平台组"
+  },
+  "license": "UNLICENSED",
+  "engines": {
+    "dsh": ">=0.2.0 <0.3.0"
+  },
+  "dshMarket": {
+    "category": "productivity"
+  },
+  "keywords": [
+    "productivity",
+    "fde",
+    "delivery",
+    "workbench",
+    "ai"
+  ],
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node tests/run.mjs"
+  },
+  "devDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "rollup": "^4.0.0"
+  }
+}

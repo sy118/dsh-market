@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="FDE delivery workbench">
+  <defs>
+    <linearGradient id="fde-workbench-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2d5bff"/>
+      <stop offset="1" stop-color="#0e9f8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#fde-workbench-gradient)"/>
+  <g fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M32 13.5 50.5 23.4 32 33.3 13.5 23.4Z"/>
+    <path d="M13.5 32.2 32 42.1 50.5 32.2"/>
+    <path d="M13.5 40.6 32 50.5 50.5 40.6" opacity="0.6"/>
+  </g>
+  <path d="M49.5 41.5 51.2 46.3 56 48 51.2 49.7 49.5 54.5 47.8 49.7 43 48 47.8 46.3Z" fill="#ffffff"/>
+</svg>
