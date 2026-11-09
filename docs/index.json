@@ -89,11 +89,11 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishTimestamp": 1793789689,
+          "publishTimestamp": 1793851549,
           "source": {
             "type": "git",
             "url": "https://github.com/sy118/dsh-market",
-            "commit": "5f6d28d680fd5cbc14ef8809d2645f7dd611772a",
+            "commit": "43e424b9d95ac865ecbb32a1d2f92804a6552ac6",
             "path": "plugins/market-publisher"
           },
           "engines": {
@@ -131,12 +131,58 @@
       "versions": [
         {
           "version": "1.0.0",
-          "publishTimestamp": 1793789689,
+          "publishTimestamp": 1793851549,
           "source": {
             "type": "git",
             "url": "https://github.com/sy118/dsh-market",
-            "commit": "5f6d28d680fd5cbc14ef8809d2645f7dd611772a",
+            "commit": "43e424b9d95ac865ecbb32a1d2f92804a6552ac6",
             "path": "plugins/demo-board"
+          },
+          "engines": {
+            "dsh": ">=0.2.0 <0.3.0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "@acme-community/fde-workbench",
+      "title": {
+        "zh": "交付工作台",
+        "en": "Delivery workbench"
+      },
+      "description": {
+        "zh": "项目组合、八阶段交付合同、资料、任务、文档、调研、AI 机会与会议，AI 由当前 DSH 提供",
+        "en": "Portfolio, eight-stage delivery contract, sources, tasks, documents, research, AI opportunities and meetings, analysed by the current DSH model"
+      },
+      "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJGREUgZGVsaXZlcnkgd29ya2JlbmNoIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZmRlLXdvcmtiZW5jaC1ncmFkaWVudCIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyZDViZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMGU5ZjhhIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNSIgZmlsbD0idXJsKCNmZGUtd29ya2JlbmNoLWdyYWRpZW50KSIvPgogIDxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIzLjIiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+CiAgICA8cGF0aCBkPSJNMzIgMTMuNSA1MC41IDIzLjQgMzIgMzMuMyAxMy41IDIzLjRaIi8+CiAgICA8cGF0aCBkPSJNMTMuNSAzMi4yIDMyIDQyLjEgNTAuNSAzMi4yIi8+CiAgICA8cGF0aCBkPSJNMTMuNSA0MC42IDMyIDUwLjUgNTAuNSA0MC42IiBvcGFjaXR5PSIwLjYiLz4KICA8L2c+CiAgPHBhdGggZD0iTTQ5LjUgNDEuNSA1MS4yIDQ2LjMgNTYgNDggNTEuMiA0OS43IDQ5LjUgNTQuNSA0Ny44IDQ5LjcgNDMgNDggNDcuOCA0Ni4zWiIgZmlsbD0iI2ZmZmZmZiIvPgo8L3N2Zz4K",
+      "author": "平台组",
+      "repository": {
+        "url": "https://github.com/sy118/dsh-market",
+        "directory": "plugins/fde-workbench"
+      },
+      "metadata": {
+        "category": "productivity",
+        "keywords": [
+          "productivity",
+          "fde",
+          "delivery",
+          "workbench",
+          "ai"
+        ],
+        "labels": [
+          "unreviewed"
+        ],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "0.2.0",
+          "publishTimestamp": 1793851549,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/sy118/dsh-market",
+            "commit": "43e424b9d95ac865ecbb32a1d2f92804a6552ac6",
+            "path": "plugins/fde-workbench"
           },
           "engines": {
             "dsh": ">=0.2.0 <0.3.0"
