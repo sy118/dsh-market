@@ -152,7 +152,12 @@ export async function normalize(options) {
     throw new Error('not a DSH bundle: package.json needs `dsh.bundle.patch`')
   }
   const oldName = manifest.name
-  if (oldName === name) throw new Error(`the package is already named ${name}; publish a new version instead`)
+  // Re-publishing an already-published package is allowed only as a new version: the
+  // name is already the market name, so nothing is rewritten, but a matching version
+  // would silently overwrite an existing release.
+  if (oldName === name && version === manifest.version) {
+    throw new Error(`the package is already published as ${name}@${manifest.version}; pass a new --version to publish an update`)
+  }
 
   const renamedFiles = await renamePackage(stagingDir, oldName, name)
 

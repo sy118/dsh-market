@@ -21,7 +21,8 @@
  */
 
 import { execFileSync } from 'node:child_process'
-import { readFile, rm, writeFile } from 'node:fs/promises'
+import { cp, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
 import { basename, dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { CATEGORIES, fallbackTitle, normalize } from '../cli/src/normalize.mjs'
@@ -150,18 +151,28 @@ if (dryRun) {
   process.exit(0)
 }
 
-await rm(target, { recursive: true, force: true })
-const normalized = await normalize({
-  sourceDir: dir,
-  stagingDir: target,
-  name,
-  version,
-  title,
-  description: description ?? `${title}`,
-  category,
-  dshRange,
-  author,
-})
+// Normalize into a private staging directory before touching the target. `--dir` may be
+// `plugins/<slug>` itself when re-publishing a new version of an existing plugin, so the
+// target must never be removed before the source has been read.
+const staging = await mkdtemp(join(tmpdir(), 'dsh-market-publish-'))
+let normalized
+try {
+  normalized = await normalize({
+    sourceDir: dir,
+    stagingDir: staging,
+    name,
+    version,
+    title,
+    description: description ?? `${title}`,
+    category,
+    dshRange,
+    author,
+  })
+  await rm(target, { recursive: true, force: true })
+  await cp(staging, target, { recursive: true })
+} finally {
+  await rm(staging, { recursive: true, force: true })
+}
 console.log(`normalized ${normalized.oldName} → ${normalized.name}@${normalized.version} (${target})`)
 
 const { file: catalogFile, catalog } = await recordInCatalog({ slug, title, titleEn, description, category })

@@ -9,7 +9,9 @@ import { configure, created, list } from '../src/list.mjs'
 import { publish } from '../src/publish.mjs'
 import { line } from '../src/ui.mjs'
 
-const BOOLEAN_FLAGS = new Set(['dry-run', 'yes', 'help', 'version'])
+// `--version` is only the version command when it stands alone; `publish --version 1.2.3`
+// carries the release version and must reach the publish command instead.
+const BOOLEAN_FLAGS = new Set(['dry-run', 'yes', 'help'])
 
 const HELP = `dsh-market — publish a workbench plugin made in your own DSH
 
