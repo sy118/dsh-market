@@ -89,11 +89,11 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishTimestamp": 1793851549,
+          "publishTimestamp": 1794218918,
           "source": {
             "type": "git",
             "url": "https://github.com/sy118/dsh-market",
-            "commit": "43e424b9d95ac865ecbb32a1d2f92804a6552ac6",
+            "commit": "496bc8eb4d29a59387b84842bc4bafe794d532f8",
             "path": "plugins/market-publisher"
           },
           "engines": {
@@ -110,7 +110,7 @@
       },
       "description": {
         "zh": "聚合本周值班、告警和待办",
-        "en": "This week's rota, alerts and open tasks"
+        "en": "聚合本周值班、告警和待办"
       },
       "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJXb3JrYmVuY2ggcGx1Z2luIj4KICA8cmVjdCB4PSI0IiB5PSI0IiB3aWR0aD0iNTYiIGhlaWdodD0iNTYiIHJ4PSIxNCIgZmlsbD0iIzFmMjkzNyIvPgogIDxyZWN0IHg9IjE0IiB5PSIxNiIgd2lkdGg9IjM2IiBoZWlnaHQ9IjciIHJ4PSIzLjUiIGZpbGw9IiNlNWU3ZWIiLz4KICA8cmVjdCB4PSIxNCIgeT0iMjkiIHdpZHRoPSIyMiIgaGVpZ2h0PSI3IiByeD0iMy41IiBmaWxsPSIjOWNhM2FmIi8+CiAgPHJlY3QgeD0iMTQiIHk9IjQyIiB3aWR0aD0iMzAiIGhlaWdodD0iNyIgcng9IjMuNSIgZmlsbD0iIzZiNzI4MCIvPgo8L3N2Zz4K",
       "author": "平台组",
@@ -130,12 +130,12 @@
       },
       "versions": [
         {
-          "version": "1.0.0",
-          "publishTimestamp": 1793851549,
+          "version": "1.0.1",
+          "publishTimestamp": 1794218918,
           "source": {
             "type": "git",
             "url": "https://github.com/sy118/dsh-market",
-            "commit": "43e424b9d95ac865ecbb32a1d2f92804a6552ac6",
+            "commit": "496bc8eb4d29a59387b84842bc4bafe794d532f8",
             "path": "plugins/demo-board"
           },
           "engines": {
@@ -177,11 +177,11 @@
       "versions": [
         {
           "version": "0.2.0",
-          "publishTimestamp": 1793851549,
+          "publishTimestamp": 1794218918,
           "source": {
             "type": "git",
             "url": "https://github.com/sy118/dsh-market",
-            "commit": "43e424b9d95ac865ecbb32a1d2f92804a6552ac6",
+            "commit": "496bc8eb4d29a59387b84842bc4bafe794d532f8",
             "path": "plugins/fde-workbench"
           },
           "engines": {
