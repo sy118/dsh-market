@@ -132,7 +132,11 @@ const manifest = JSON.parse(await readFile(join(dir, 'package.json'), 'utf8'))
 const dirSlug = basename(dir).toLowerCase().replace(/[^a-z0-9._-]+/g, '-')
 const title = typeof options.title === 'string' ? options.title : fallbackTitle(dirSlug)
 const titleEn = typeof options['title-en'] === 'string' ? options['title-en'] : title
-const name = typeof options.name === 'string' ? options.name : `@acme-community/${dirSlug}`
+// `--name` accepts a bare slug or a full `@scope/slug`, the same way `dsh-market publish` does.
+const requestedName = typeof options.name === 'string' ? options.name.trim() : ''
+const name = requestedName === ''
+  ? `@acme-community/${dirSlug}`
+  : (requestedName.startsWith('@') ? requestedName : `@acme-community/${requestedName}`)
 const version = typeof options.version === 'string' ? options.version : String(manifest.version ?? '1.0.0')
 const category = typeof options.category === 'string' ? options.category : 'other'
 const description = typeof options.description === 'string' ? options.description : undefined
